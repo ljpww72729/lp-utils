@@ -1,4 +1,4 @@
-package com.ww.lp.lputils;
+package com.ww.lp.lputils.android;
 
 import android.content.Context;
 import android.content.pm.PackageInfo;

@@ -6,6 +6,8 @@ import android.os.Build;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.content.PermissionChecker;
 
+import com.ww.lp.lputils.android.ApplicationInfoUtils;
+
 /**
  * 权限帮助类
  *
