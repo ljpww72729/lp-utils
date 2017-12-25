@@ -2,6 +2,8 @@ package com.ww.lp.lputils;
 
 import android.support.v4.util.ArrayMap;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -212,5 +214,81 @@ public class StringUtils {
         }
         return transactionString;
     }
+
+    /**
+     * 获取一个字符串中最后的数值，如lp_00_iot_001中的001
+     *
+     * @param parseString 查找的字符串
+     */
+    public static String splitDigitEndString(String parseString) {
+        Pattern pattern = Pattern.compile(".*\\D+(?=(\\d+$))");
+        Matcher matcher = pattern.matcher(parseString);
+        if (matcher.find()) {
+            for (int i = 0; i < matcher.groupCount() + 1; i++) {
+                System.out.println(matcher.group(i) + "");
+            }
+            return matcher.group(1);
+        } else {
+            System.out.println("NO MATCH");
+        }
+        return "";
+    }
+
+    /**
+     * 查找在两个特定字符之间的字符串
+     *
+     * @param parseString 查找的字符
+     */
+    public static String obtainStrBetweenbAssignedStr(String parseString) {
+        String PATTERNTRANSACTIONTYPE = "`\\+(.+)`\\+";
+        // 创建 Pattern 对象
+        Pattern r = Pattern.compile(PATTERNTRANSACTIONTYPE);
+
+        // 现在创建 matcher 对象
+        Matcher m = r.matcher(parseString);
+        if (m.find()) {
+            for (int i = 0; i < m.groupCount() + 1; i++) {
+                System.out.println("group" + i + "=" + m.group(i));
+            }
+            return m.group(1);
+        } else {
+            System.out.println("NO MATCH");
+        }
+        return "";
+    }
+
+    /**
+     * 将字节数组转换为字符串
+     *
+     * @return 字符串
+     */
+    public static String bytesToString() {
+        List<Byte> byteList = new ArrayList<>();
+        byteList.add((byte) 127);
+        byteList.add((byte) 126);
+        byteList.add((byte) -2);
+        byteList.add((byte) 5);
+
+        byte[] byteArray = new byte[byteList.size()];
+        for (int i = 0; i < byteList.size(); i++) {
+            System.out.println(byteList.get(i));
+            byteArray[i] = byteList.get(i);
+        }
+        try {
+            // 转换为字符串
+            String result = new String(byteArray, "iso8859-1");
+            System.out.println(result);
+            // 将字符串转成字节数组
+            byte[] byteStr = result.getBytes("iso8859-1");
+            for (int i = 0; i < byteStr.length; i++) {
+                System.out.println(byteStr[i]);
+            }
+            return result;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "";
+    }
+
 
 }

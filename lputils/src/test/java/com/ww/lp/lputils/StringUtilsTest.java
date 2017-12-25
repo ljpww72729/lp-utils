@@ -8,6 +8,23 @@ import org.junit.Test;
  */
 public class StringUtilsTest {
     @Test
+    public void bytesToString() throws Exception {
+        StringUtils.bytesToString();
+    }
+
+    @Test
+    public void obtainStrBetweenbAssignedStr() throws Exception {
+        String parseString = "data:image/png;base64,`+YKDLKDIKEN234KKLFJL`+";
+        Assert.assertEquals(StringUtils.obtainStrBetweenbAssignedStr(parseString), "YKDLKDIKEN234KKLFJL");
+    }
+
+    @Test
+    public void splitDigitEndString() throws Exception {
+        String parseString = "lp_00_iot_001";
+        Assert.assertEquals(StringUtils.splitDigitEndString(parseString), "001");
+    }
+
+    @Test
     public void obtainBalanceString() throws Exception {
         String parseString = "您尾号8573卡6月10日23:10POS支出(转账)4,000元，余额213.84元。【工商银行】";
         Assert.assertEquals(StringUtils.obtainBalanceString(parseString), "￥213.84");
