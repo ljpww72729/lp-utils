@@ -8,6 +8,11 @@ import org.junit.Test;
  */
 public class StringUtilsTest {
     @Test
+    public void bigIntegerToBytes() throws Exception {
+        StringUtils.bigIntegerToBytes();
+    }
+
+    @Test
     public void bytesToString() throws Exception {
         StringUtils.bytesToString();
     }

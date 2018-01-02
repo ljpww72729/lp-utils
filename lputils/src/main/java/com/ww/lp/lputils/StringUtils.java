@@ -2,6 +2,7 @@ package com.ww.lp.lputils;
 
 import android.support.v4.util.ArrayMap;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -290,5 +291,12 @@ public class StringUtils {
         return "";
     }
 
+    /**
+     * 将BigInteger字符串转换成二进制串
+     */
+    public static void bigIntegerToBytes() {
+        BigInteger bigInteger = new BigInteger("80572035822274991320547201024");
+        System.out.println(bigInteger.toString(2));
+    }
 
 }
