@@ -1,5 +1,6 @@
 package com.ww.lp.lputils;
 
+import java.math.BigInteger;
 import java.util.regex.Pattern;
 
 /**
@@ -25,6 +26,11 @@ public class VerifyUtils {
         return Pattern.matches(PHONE_NUMBER_REG, phoneNumber);
     }
 
+
+    public static void main(String[] args) {
+        BigInteger bigInteger = new BigInteger("163310655903018006150123618372");
+        System.out.println(bigInteger.toString(2));
+    }
 }
 
 
