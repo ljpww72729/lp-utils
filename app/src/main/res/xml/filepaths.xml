@@ -3,6 +3,6 @@
     <paths>
         <files-path
                 name="extFileImage"
-                path="shared/images/"/>
+                path="shared/"/>
     </paths>
 </resources>
